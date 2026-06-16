@@ -1,0 +1,24 @@
+name: Build WTA301
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Deps
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential clang flex bison g++ gawk gcc-multilib g++-multilib gettext git libncurses5-dev libssl-dev python3-setuptools rsync swig unzip zlib1g-dev file wget
+      - name: Build
+        run: |
+          echo "CONFIG_TARGET_qualcommax=y" > .config
+          echo "CONFIG_TARGET_qualcommax_ipq50xx=y" >> .config
+          make defconfig
+          make -j$(nproc) || make -j1 V=s
+      - name: Upload Firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: WTA301-Firmware
+          path: ./bin/targets/*/*
