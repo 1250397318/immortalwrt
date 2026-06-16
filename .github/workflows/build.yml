@@ -16,6 +16,7 @@ jobs:
         run: |
           echo "CONFIG_TARGET_qualcommax=y" > .config
           echo "CONFIG_TARGET_qualcommax_ipq50xx=y" >> .config
+          echo "CONFIG_TARGET_qualcommax_ipq50xx_DEVICE_tplink_wta301-v1=y" >> .config
           make defconfig
           timeout 1200 make -j$(nproc) || timeout 600 make -j1 V=s
       - name: Upload Firmware
