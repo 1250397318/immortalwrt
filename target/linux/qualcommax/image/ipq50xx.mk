@@ -291,8 +291,8 @@ define Device/tplink_wta301-v1
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := TP-Link
 	DEVICE_MODEL := WTA301
-	DEVICE_VARIANT := v1
 	DEVICE_DTS_CONFIG := config@ipq0509
+	DEVICE_DTS := ipq0509-wta301-v1
 	SOC := ipq0509
 	DEVICE_PACKAGES := kmod-ath11k-qca-mcs ipq-wifi-tplink_wta301-v1
 	IMAGE_SIZE := 128m
