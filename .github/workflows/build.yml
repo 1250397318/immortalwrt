@@ -19,7 +19,7 @@ jobs:
           echo "CONFIG_TARGET_qualcommax_ipq50xx_DEVICE_tplink_wta301-v1=y" >> .config
           make defconfig
           make -j$(nproc) || make -j1 V=s
-      - name: Upload Firmware
+      - name: Upload- name: Upload Firmware
         uses: actions/upload-artifact@v4
         with:
           name: WTA301-Firmware
