@@ -1,6 +1,8 @@
 /dts-v1/;
 
 #include "ipq5018.dtsi"
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
 
 / {
 	model = "TP-Link WTA301 v1";
