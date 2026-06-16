@@ -284,3 +284,19 @@ define Device/zyxel_scr50axe
 		ipq-wifi-zyxel_scr50axe
 endef
 TARGET_DEVICES += zyxel_scr50axe
+
+
+define Device/tplink_wta301-v1
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := TP-Link
+	DEVICE_MODEL := WTA301
+	DEVICE_VARIANT := v1
+	DEVICE_DTS_CONFIG := config@ipq0509
+	SOC := ipq0509
+	DEVICE_PACKAGES := kmod-ath11k-qca-mcs ipq-wifi-tplink_wta301-v1
+	IMAGE_SIZE := 128m
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+endef
+TARGET_DEVICES += tplink_wta301-v1
