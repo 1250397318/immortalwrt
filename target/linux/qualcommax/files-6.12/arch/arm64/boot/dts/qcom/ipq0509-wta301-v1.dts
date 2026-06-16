@@ -22,7 +22,7 @@
 
 	leds {
 		compatible = "gpio-leds";
-		system {
+		led_system: system {
 			label = "blue:system";
 			gpios = <&tlmm 31 GPIO_ACTIVE_HIGH>;
 		};
